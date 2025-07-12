@@ -6,32 +6,37 @@ import SearchPage from "@/features/search/SearchPage";
 import FavoritesPage from "@/features/favorites/FavoritesPage";
 import ProtectedRoute from "./ProtectedRoute";
 
-const router = createBrowserRouter([
-  { path: "/login", element: <LoginPage /> },
+const router = createBrowserRouter(
+  [
+    { path: "/login", element: <LoginPage /> },
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Navigate to="/search" replace /> },
+        {
+          path: "search",
+          element: (
+            <ProtectedRoute>
+              <SearchPage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "favorites",
+          element: (
+            <ProtectedRoute>
+              <FavoritesPage />
+            </ProtectedRoute>
+          ),
+        },
+        { path: "*", element: <NotFoundPage /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { index: true, element: <Navigate to="/search" replace /> },
-      {
-        path: "search",
-        element: (
-          <ProtectedRoute>
-            <SearchPage />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "favorites",
-        element: (
-          <ProtectedRoute>
-            <FavoritesPage />
-          </ProtectedRoute>
-        ),
-      },
-      { path: "*", element: <NotFoundPage /> },
-    ],
-  },
-]);
+    basename: "/find-your-paw/",
+  }
+);
 
 export default router;
