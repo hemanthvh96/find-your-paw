@@ -5,7 +5,7 @@ import {
   searchDogs,
   fetchDogDetails,
   fetchMatch,
-} from "./searchApi";
+} from "./searchAPI";
 import type {
   Dog,
   FilterContentProps,
