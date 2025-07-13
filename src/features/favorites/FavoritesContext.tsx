@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import type { ReactNode } from "react";
+import { useAuth } from "@/features/auth/AuthContext";
 
 interface FavoritesContextType {
   favoriteIds: Set<string>;
@@ -13,20 +14,33 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
 );
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
-  const [favoriteIds, setFavoriteIds] = useState<Set<string>>(() => {
-    try {
-      const storedFavorites = localStorage.getItem("favoriteIds");
-      return storedFavorites ? new Set(JSON.parse(storedFavorites)) : new Set();
-    } catch (error) {
-      console.error("Failed to parse favorites from local storage", error);
-      return new Set();
-    }
-  });
+  const { user } = useAuth();
+  const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
+
+  const storageKey = user ? `favoriteIds_${user.email}` : null;
 
   useEffect(() => {
-    const favoriteIdsArray = Array.from(favoriteIds);
-    localStorage.setItem("favoriteIds", JSON.stringify(favoriteIdsArray));
-  }, [favoriteIds]);
+    if (user && storageKey) {
+      try {
+        const storedFavorites = localStorage.getItem(storageKey);
+        setFavoriteIds(
+          storedFavorites ? new Set(JSON.parse(storedFavorites)) : new Set()
+        );
+      } catch (error) {
+        console.error("Failed to parse favorites from local storage", error);
+        setFavoriteIds(new Set());
+      }
+    } else {
+      setFavoriteIds(new Set());
+    }
+  }, [user, storageKey]);
+
+  useEffect(() => {
+    if (user && storageKey) {
+      const favoriteIdsArray = Array.from(favoriteIds);
+      localStorage.setItem(storageKey, JSON.stringify(favoriteIdsArray));
+    }
+  }, [favoriteIds, user, storageKey]);
 
   const addFavorite = (id: string) => {
     setFavoriteIds((prev) => new Set(prev).add(id));
