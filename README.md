@@ -8,14 +8,14 @@ Welcome to FindPaws, a modern web application designed to help you find your per
 
 ## Features
 
-- **User Authentication:** Secure login system to access the application.
-- **Advanced Search & Filtering:** Filter dogs by multiple criteria including breeds, age range, and location (zip codes).
-- **Dynamic Sorting:** Sort search results by breed, name, or age in both ascending and descending order.
-- **Favorites System:** Users can mark their favorite dogs, which persist across the application.
-- **Find Your Match:** A unique feature that suggests the best possible match from the user's list of favorited dogs.
-- **State Persistence:** All search filters, sorting preferences, and pagination state are saved for the session, providing a seamless experience when navigating between pages.
-- **Responsive Design:** A mobile-first design that is fully optimized for all screen sizes, from small mobile devices to wide desktops.
-- **Modern UI/UX:** Built with a clean interface, including skeleton loaders for a smooth data-fetching experience.
+- **User Authentication**
+- **Advanced Search & Filtering**
+- **Dynamic Sorting**
+- **Favorites System**
+- **Find Your Match**
+- **State Persistence**
+- **Responsive Design**
+- **Modern UI/UX**
 
 ---
 
