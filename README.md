@@ -1,69 +1,61 @@
-# React + TypeScript + Vite
+# FindPaws 🐾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to FindPaws, a modern web application designed to help you find your perfect canine companion. This platform allows users to search, filter, and sort through a database of dogs to find a match based on their preferences.
 
-Currently, two official plugins are available:
+### ✨ [Live Demo](https://hemanthvh96.github.io/find-your-paw/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **User Authentication:** Secure login system to access the application.
+- **Advanced Search & Filtering:** Filter dogs by multiple criteria including breeds, age range, and location (zip codes).
+- **Dynamic Sorting:** Sort search results by breed, name, or age in both ascending and descending order.
+- **Favorites System:** Users can mark their favorite dogs, which persist across the application.
+- **Find Your Match:** A unique feature that suggests the best possible match from the user's list of favorited dogs.
+- **State Persistence:** All search filters, sorting preferences, and pagination state are saved for the session, providing a seamless experience when navigating between pages.
+- **Responsive Design:** A mobile-first design that is fully optimized for all screen sizes, from small mobile devices to wide desktops.
+- **Modern UI/UX:** Built with a clean interface, including skeleton loaders for a smooth data-fetching experience.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Framework:** **React 19**
+- **UI Components:** **shadcn/ui**
+- **Styling:** **Tailwind CSS**
+- **Routing:** React Router DOM
+- **Build Tool:** Vite
+- **Icons:** lucide-react
+- **Deployment:** GitHub Actions & GitHub Pages
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Running Locally
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+To run locally, follow these steps.
+
+### Prerequisites
+
+- Node.js (v20 or later recommended)
+- npm
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```sh
+    git clone [https://github.com/hemanthvh96/find-your-paw.git](https://github.com/hemanthvh96/find-your-paw.git)
+    ```
+2.  **Navigate to the project directory:**
+    ```sh
+    cd find-your-paw
+    ```
+3.  **Install NPM packages:**
+    ```sh
+    npm install
+    ```
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+5.  Open [http://localhost:5173](http://localhost:5173) (or the port specified in your console) to view it in the browser.
