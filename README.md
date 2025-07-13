@@ -37,7 +37,7 @@ To run locally, follow these steps.
 
 ### Prerequisites
 
-- Node.js (v20 or later recommended)
+- Node.js (v20 or higher)
 - npm
 
 ### Installation & Setup
