@@ -42,11 +42,12 @@ export default function LoginPage() {
 
   return (
     <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-2">
-      <div className="flex items-center justify-center py-12">
-        <div className="mx-auto grid w-[350px] gap-6">
+      <div className="flex items-center justify-center p-6 py-12 sm:p-12">
+        {/* FIX: Make the form container responsive */}
+        <div className="mx-auto grid w-full max-w-[350px] gap-6">
           <div className="grid gap-2 text-center">
             <div className="flex items-center justify-center gap-2">
-              <Dog className="h-8 w-8 text-accent" />
+              <Dog className="h-8 w-8 text-primary" />
               <h1 className="text-3xl font-bold">FindPaws</h1>
             </div>
             <p className="text-balance text-muted-foreground">
@@ -84,11 +85,7 @@ export default function LoginPage() {
                 disabled={loading}
               />
             </div>
-            <Button
-              type="submit"
-              className="w-full cursor-pointer bg-primary"
-              disabled={loading}
-            >
+            <Button type="submit" className="w-full" disabled={loading}>
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Sign In
             </Button>
