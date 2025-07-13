@@ -276,7 +276,7 @@ export default function SearchPage() {
 
   const filterContentProps: FilterContentProps = {
     filters,
-    breedSearchTerm: "",
+    breedSearchTerm: breedSearchTerm,
     filteredBreeds: allBreeds.filter((breed) =>
       breed.toLowerCase().includes(breedSearchTerm.toLowerCase())
     ),
