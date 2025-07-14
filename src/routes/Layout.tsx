@@ -1,4 +1,5 @@
 import Header from "@/components/custom/layout/Header";
+import { Toaster } from "sonner";
 import { Outlet } from "react-router";
 
 export default function Layout() {
@@ -8,6 +9,7 @@ export default function Layout() {
       <main className="flex-1 flex flex-col bg-[#fffdfb]">
         <Outlet />
       </main>
+      <Toaster position="top-center" richColors />
     </div>
   );
 }

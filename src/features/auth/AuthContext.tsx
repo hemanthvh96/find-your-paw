@@ -32,14 +32,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = async () => {
     try {
       await logoutAPI();
+      setUser(null);
+      sessionStorage.clear();
     } catch (error) {
       console.error("Logout failed:", error);
-    } finally {
-      setUser(null);
-      sessionStorage.removeItem("search_filters");
-      sessionStorage.removeItem("search_sort");
-      sessionStorage.removeItem("search_dogs");
-      sessionStorage.removeItem("search_currentPage");
+      throw new Error("Logout failed. Please try again.");
     }
   };
 
