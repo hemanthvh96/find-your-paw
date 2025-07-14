@@ -32,6 +32,7 @@ export default function DogCard({ dog }: { dog: Dog }) {
         <Button
           variant="ghost"
           size="icon"
+          className="cursor-pointer"
           onClick={handleToggleFavorite}
           aria-label={
             isFavorite ? `Unfavorite ${dog.name}` : `Favorite ${dog.name}`
